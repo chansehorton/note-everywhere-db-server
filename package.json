@@ -1,0 +1,16 @@
+{
+  "name": "note-everywhere-db-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:chansehorton/note-everywhere-db-server.git",
+  "author": "CHANSE HORTON <chansehorton@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.3",
+    "supertest": "^3.0.0"
+  }
+}
