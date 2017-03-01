@@ -13,12 +13,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(bodyParser.json());
 
-const users = require('./routes/users');
 const notes = require('./routes/notes');
 
-app.use(users);
 app.use(notes);
-
 
 switch (app.get('env')) {
   case 'development':

@@ -6,6 +6,7 @@
   "author": "CHANSE HORTON <chansehorton@yahoo.com>",
   "license": "MIT",
   "dependencies": {
+    "boom": "^4.2.0",
     "dotenv": "^4.0.0",
     "morgan": "^1.8.1"
   },
