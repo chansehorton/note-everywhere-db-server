@@ -86,12 +86,59 @@ router.post('/notes', (req, res, next) => {
     });
 });
 
-router.patch('/notes/:user_url', (req, res, next) => {
-
+router.patch('/notes/:id', (req, res, next) => {
+  if (!req.body || !req.body.note) {
+    return next(boom.create(400, 'Bad request. Missing required data.'))
+  }
+  knex('notes')
+    .where('id', req.params.id)
+    .first()
+    .then((note) => {
+      if (!note) {
+        return next(boom.create(400, 'Bad request. This note does not exist.'))
+      } else {
+        knex('notes')
+          .update(req.body, '*')
+          .where('id', req.params.id)
+          .then((updatedNote) => {
+            res.send(updatedNote[0]);
+          })
+          .catch((err) => {
+            next(err);
+          });
+      }
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
 
-router.delete('/notes/:user_url', (req, res, next) => {
+router.delete('/notes/:id', (req, res, next) => {
+  let deletedNote;
 
+  knex('notes')
+    .where('id', req.params.id)
+    .first()
+    .then((note) => {
+      if (!note) {
+        return next(boom.create(400, 'Bad request. Record does not exist'));
+      }
+
+      deletedNote = note;
+      knex('notes')
+        .del()
+        .where('id', req.params.id)
+        .then(() => {
+          delete deletedNote.id;
+          res.send(deletedNote);
+        })
+        .catch((err) => {
+          next(err);
+        });
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
 
 module.exports = router;
