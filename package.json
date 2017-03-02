@@ -5,6 +5,9 @@
   "repository": "git@github.com:chansehorton/note-everywhere-db-server.git",
   "author": "CHANSE HORTON <chansehorton@yahoo.com>",
   "license": "MIT",
+  "engines": {
+    "node": "6.7.0"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "jasmine",
@@ -18,7 +21,6 @@
     "express": "^4.15.0",
     "knex": "^0.12.6",
     "morgan": "^1.8.1",
-    "node": "6.7.0",
     "pg": "^6.1.0"
   },
   "devDependencies": {
