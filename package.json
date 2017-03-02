@@ -5,6 +5,9 @@
   "repository": "git@github.com:chansehorton/note-everywhere-db-server.git",
   "author": "CHANSE HORTON <chansehorton@yahoo.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
   "dependencies": {
     "boom": "^4.2.0",
     "dotenv": "^4.0.0",
