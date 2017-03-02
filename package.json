@@ -6,7 +6,8 @@
   "author": "CHANSE HORTON <chansehorton@yahoo.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon"
+    "start": "node server.js",
+    "test": "jasmine"
   },
   "dependencies": {
     "boom": "^4.2.0",
