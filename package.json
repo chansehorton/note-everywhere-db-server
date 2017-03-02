@@ -12,12 +12,12 @@
     "heroku-postbuild": "knex migrate:latest && knex seed:run"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "boom": "^4.2.0",
     "dotenv": "^4.0.0",
-    "morgan": "^1.8.1",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
+    "express": "^4.15.0",
     "knex": "^0.12.6",
+    "morgan": "^1.8.1",
     "pg": "^6.1.0"
   },
   "devDependencies": {
