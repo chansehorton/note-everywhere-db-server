@@ -9,7 +9,7 @@ exports.seed = (knex, Promise) => {
         knex('notes').insert({
           id: 1,
           user_id: 1,
-          url: "campspot.com",
+          url: "campspot.com/",
           note: "user 1 made a note",
           note_position: "left"
         }),
@@ -30,7 +30,7 @@ exports.seed = (knex, Promise) => {
         knex('notes').insert({
           id: 4,
           user_id: 2,
-          url: "campspot.com",
+          url: "campspot.com/",
           note: "user 2 made a note",
           note_position: "right"
         }),

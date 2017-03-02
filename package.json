@@ -12,7 +12,7 @@
     "start": "node server.js",
     "test": "jasmine",
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest"
+    "heroku-postbuild": "knex migrate:rollback && knex migrate:latest && knex seed:run"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
