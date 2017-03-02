@@ -9,7 +9,7 @@
     "start": "node server.js",
     "test": "jasmine",
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest && knex seed:run"
+    "heroku-postbuild": "knex migrate:latest"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
