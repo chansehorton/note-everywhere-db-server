@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "test": "jasmine"
+    "test": "jasmine",
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:latest && knex seed:run"
   },
   "dependencies": {
     "boom": "^4.2.0",
