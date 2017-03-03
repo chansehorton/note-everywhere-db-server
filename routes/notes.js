@@ -72,7 +72,7 @@ router.post('/notes', (req, res, next) => {
     .andWhere('url', req.body.url)
     .then((note) => {
       if (note[0]) {
-        console.log('post search, no note found');
+        console.log('post search, note found');
         return next(boom.create(400, 'Bad request. This note already exists.'))
       } else {
         knex('notes')
