@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
   return knex.schema.createTable('notes', (table) => {
     table.increments('id');
     table.unique(['user_id', 'url']);
-    table.decimal('user_id').notNullable();
+    table.string('user_id').notNullable();
     table.string('url').notNullable().defaultTo('');
     table.string('note').notNullable().defaultTo('');
     table.string('note_position').notNullable().defaultTo('left');
