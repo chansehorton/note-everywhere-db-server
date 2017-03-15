@@ -11,8 +11,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jasmine",
-    "knex": "knex",
-    "heroku-postbuild": "knex migrate:rollback && knex migrate:latest && knex seed:run"
+    "knex": "knex"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -21,7 +20,8 @@
     "express": "^4.15.0",
     "knex": "^0.12.6",
     "morgan": "^1.8.1",
-    "pg": "^6.1.0"
+    "pg": "^6.1.0",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "jasmine": "^2.5.3",
