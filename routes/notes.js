@@ -68,7 +68,7 @@ router.post('/notes', (req, res, next) => {
     .andWhere('url', req.body.url)
     .then((note) => {
       if (note[0]) {
-        console.log('note not found');
+        console.log('note found');
         return next(boom.create(400, 'Bad request. This note already exists.'))
       } else {
         knex('notes')
@@ -101,7 +101,8 @@ router.patch('/notes', (req, res, next) => {
       } else {
         knex('notes')
           .update(req.body, '*')
-          .where('id', note.user_id)
+          .where('user_id', req.body.user_id)
+          .andWhere('url', req.body.url)
           .then((updatedNote) => {
             res.send(updatedNote[0]);
           })
