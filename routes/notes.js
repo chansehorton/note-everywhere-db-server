@@ -60,6 +60,7 @@ router.post('/notes', (req, res, next) => {
   if (!req.body.url || !req.body.note) {
     return next(boom.create(400, 'Bad request. One or more required parameters are empty.'))
   }
+  console.log(req.body);
 
   knex('notes')
     .where('user_id', req.body.user_id)
