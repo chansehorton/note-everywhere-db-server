@@ -58,6 +58,7 @@ router.get('/notes/:id', (req, res, next) => {
 
 router.post('/notes', (req, res, next) => {
   if (!req.body.url || !req.body.note) {
+    console.log('first test failed');
     return next(boom.create(400, 'Bad request. One or more required parameters are empty.'))
   }
   console.log(req.body);
@@ -67,11 +68,13 @@ router.post('/notes', (req, res, next) => {
     .andWhere('url', req.body.url)
     .then((note) => {
       if (note[0]) {
+        console.log('note not found');
         return next(boom.create(400, 'Bad request. This note already exists.'))
       } else {
         knex('notes')
           .insert(req.body, '*')
           .then((postedNote) => {
+            console.log(postedNote[0]);
             res.send(postedNote[0]);
           })
           .catch((err) => {
