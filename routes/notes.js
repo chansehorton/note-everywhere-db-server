@@ -83,12 +83,13 @@ router.post('/notes', (req, res, next) => {
     });
 });
 
-router.patch('/notes/:id', (req, res, next) => {
+router.patch('/notes', (req, res, next) => {
   if (!req.body || !req.body.note) {
     return next(boom.create(400, 'Bad request. Missing required data.'))
   }
   knex('notes')
-    .where('id', req.params.id)
+    .where('user_id', req.body.user_id)
+    .andWhere('url', req.body.url)
     .first()
     .then((note) => {
       if (!note) {
@@ -96,7 +97,7 @@ router.patch('/notes/:id', (req, res, next) => {
       } else {
         knex('notes')
           .update(req.body, '*')
-          .where('id', req.params.id)
+          .where('id', note.user_id)
           .then((updatedNote) => {
             res.send(updatedNote[0]);
           })
